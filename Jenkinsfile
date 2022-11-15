@@ -25,11 +25,11 @@ pipeline{
         }
         
         
-        /* stage('UNIT test'){
+      stage('UNIT test'){
             steps{
                 sh 'mvn test'
             }
-        }*/
+        }
 
          stage('SonarQube Analysis'){
                 steps {
@@ -48,6 +48,31 @@ pipeline{
         stage('Nexus'){
             steps{
                 sh 'mvn deploy -DskipTests'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                        sh """ docker build -t medmalek/achat ."""
+                    
+                  
+                }
+            }
+        }       
+        
+        stage('Login') {
+            steps{
+                
+                sh """ docker login -u "medmalek" -p "malek001!" docker.io  """
+            }
+        }
+        
+        
+        stage('push to DockerHub') {
+            steps{
+
+                sh """ docker push  medmalek/achat """
+                
             }
         }
         
