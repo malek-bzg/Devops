@@ -1,6 +1,5 @@
 package com.esprit.examen.services;
 
-
 import com.esprit.examen.entities.Operateur;
 import com.esprit.examen.repositories.OperateurRepository;
 import org.junit.jupiter.api.Assertions;
@@ -14,10 +13,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-public class OperateurServiceMockito {
+ class OperateurServiceMockito {
+
     @Mock
     OperateurRepository operateurRepositoryMock;
     @InjectMocks
@@ -62,7 +63,7 @@ public class OperateurServiceMockito {
 
     @Test
     void tesupdateOperateur() {
-        op.setPrenom("Hamdi");
+        op.setPrenom("Med");
         Mockito.when(operateurRepositoryMock.save(op)).thenReturn(op);
         Operateur op1 = operateurService.updateOperateur(op);
         Assertions.assertEquals(op.getPrenom(),op1.getPrenom());
@@ -76,4 +77,5 @@ public class OperateurServiceMockito {
         Mockito.verify(operateurRepositoryMock).deleteById(op2.getIdOperateur());
 
     }
+
 }
