@@ -15,7 +15,7 @@ services:
 
 
   spring_app:
-    image: zwayten/achat
+    image: zmandarus/achat
     container_name: achatspring
     restart: on-failure
     environment:
