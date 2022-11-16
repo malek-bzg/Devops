@@ -10,8 +10,6 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>tpAchatProject</artifactId>
-		<version>1.4.1-SNAPSHOT</version>
-	
 	<version>1.0</version>
 	<name>tpAchatProject</name>
 	<description>tpAchatProject</description>
@@ -92,12 +90,8 @@
 	<distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
-			<name>TestWebApp Applications Repository Internal</name>
+			<name>admin</name>
 			<url>http://192.168.56.13:8081/repository/maven-releases/</url>
 		</repository>
-		<snapshotRepository>
-			<id>deploymentRepo</id>
-			<url>http://192.168.56.13:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
 	</distributionManagement>
 </project>
